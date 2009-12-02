@@ -5,7 +5,6 @@
 # See http://www.boost.org/LICENSE_1_0.txt
 #
 
-# Add a library target to the build system
 ryppl_library_project(
   boost.serialization
   SRCDIRS  src

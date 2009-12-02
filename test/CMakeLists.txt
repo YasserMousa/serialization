@@ -34,7 +34,7 @@ macro(serialization_test testname)
   
   set(BSL_TEST_LIBRARIES) 
   if(NOT BSL_NO_LIBS)
-    set(BSL_TEST_LIBRARIES "ryppl_serialization")
+    set(BSL_TEST_LIBRARIES "boost_serialization")
   endif(NOT BSL_NO_LIBS)
 
   # Tests linking against the static serialization library
@@ -71,9 +71,9 @@ macro(serialization_test_allarchives testname)
   foreach(ARCHIVE ${BOOST_ARCHIVE_LIST})
     set(BSL_TEST_LIBRARIES) 
     if(NOT BSL_NO_LIBS)
-      set(BSL_TEST_LIBRARIES "ryppl_serialization")
+      set(BSL_TEST_LIBRARIES "boost_serialization")
       if(ARCHIVE MATCHES ".*warchive")
-        set(BSL_TEST_LIBRARIES "ryppl_wserialization" ${BSL_TEST_LIBRARIES})
+        set(BSL_TEST_LIBRARIES "boost_wserialization" ${BSL_TEST_LIBRARIES})
       endif(ARCHIVE MATCHES ".*warchive")
     endif(NOT BSL_NO_LIBS)
 
