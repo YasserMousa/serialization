@@ -5,7 +5,7 @@
 # See http://www.boost.org/LICENSE_1_0.txt
 #
 
-boost_add_library(serialization
+ryppl_add_library(boost_serialization
 
   basic_archive.cpp
   basic_iarchive.cpp
@@ -39,7 +39,7 @@ boost_add_library(serialization
   SHARED_COMPILE_FLAGS -DBOOST_SERIALIZATION_DYN_LINK=1
   )
 
-boost_add_library(wserialization
+ryppl_add_library(boost_wserialization
 
   basic_text_wiprimitive.cpp
   basic_text_woprimitive.cpp

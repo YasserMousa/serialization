@@ -34,18 +34,18 @@ macro(serialization_test testname)
   
   set(BSL_TEST_LIBRARIES) 
   if(NOT BSL_NO_LIBS)
-    set(BSL_TEST_LIBRARIES "boost_serialization")
+    set(BSL_TEST_LIBRARIES "ryppl_serialization")
   endif(NOT BSL_NO_LIBS)
 
   # Tests linking against the static serialization library
-  boost_test_run("${testname}"
+  ryppl_test_run("${testname}"
     ${BSL_TEST_SOURCES}
     STATIC
     DEPENDS ${BSL_TEST_LIBRARIES}
     COMPILE_FLAGS "-DBOOST_LIB_DIAGNOSTIC=1")
     
   # Tests linking against the shared serialization library
-  boost_test_run("${testname}_dll"
+  ryppl_test_run("${testname}_dll"
     ${BSL_TEST_SOURCES}
     SHARED
     DEPENDS ${BSL_TEST_LIBRARIES}
@@ -71,21 +71,21 @@ macro(serialization_test_allarchives testname)
   foreach(ARCHIVE ${BOOST_ARCHIVE_LIST})
     set(BSL_TEST_LIBRARIES) 
     if(NOT BSL_NO_LIBS)
-      set(BSL_TEST_LIBRARIES "boost_serialization")
+      set(BSL_TEST_LIBRARIES "ryppl_serialization")
       if(ARCHIVE MATCHES ".*warchive")
-        set(BSL_TEST_LIBRARIES "boost_wserialization" ${BSL_TEST_LIBRARIES})
+        set(BSL_TEST_LIBRARIES "ryppl_wserialization" ${BSL_TEST_LIBRARIES})
       endif(ARCHIVE MATCHES ".*warchive")
     endif(NOT BSL_NO_LIBS)
 
     # Tests linking against the static serialization library
-    boost_test_run("${testname}_${ARCHIVE}"
+    ryppl_test_run("${testname}_${ARCHIVE}"
       ${BSL_TEST_SOURCES}
       STATIC
       DEPENDS ${BSL_TEST_LIBRARIES}
       COMPILE_FLAGS "-DBOOST_ARCHIVE_TEST=${BSL_TEST_POLY}${ARCHIVE}.hpp -DBOOST_LIB_DIAGNOSTIC=1")
     
     # Tests linking against the shared serialization library
-    boost_test_run("${testname}_${ARCHIVE}_dll"
+    ryppl_test_run("${testname}_${ARCHIVE}_dll"
       ${BSL_TEST_SOURCES}
       SHARED
       DEPENDS ${BSL_TEST_LIBRARIES}
@@ -93,7 +93,7 @@ macro(serialization_test_allarchives testname)
   endforeach(ARCHIVE ${BOOST_ARCHIVE_LIST})
 endmacro(serialization_test_allarchives)
 
-boost_additional_test_dependencies(serialization BOOST_DEPENDS test)
+ryppl_additional_test_dependencies(serialization BOOST_DEPENDS test)
 
 
 serialization_test_allarchives(test_array test_array.cpp A.cpp)
@@ -160,25 +160,25 @@ serialization_test(test_codecvt_null
   test_codecvt_null.cpp ../src/codecvt_null.cpp NO_LIBS)
 
 # should fail compilation
-boost_test_compile_fail(test_not_serializable)
-boost_test_compile_fail(test_traits_fail)
-boost_test_compile_fail(test_const_load_fail1)
-boost_test_compile_fail(test_const_load_fail2)
-boost_test_compile_fail(test_const_load_fail3)
-boost_test_compile_fail(test_const_load_fail1_nvp)
-boost_test_compile_fail(test_const_load_fail2_nvp)
-boost_test_compile_fail(test_const_load_fail3_nvp)
+ryppl_test_compile_fail(test_not_serializable)
+ryppl_test_compile_fail(test_traits_fail)
+ryppl_test_compile_fail(test_const_load_fail1)
+ryppl_test_compile_fail(test_const_load_fail2)
+ryppl_test_compile_fail(test_const_load_fail3)
+ryppl_test_compile_fail(test_const_load_fail1_nvp)
+ryppl_test_compile_fail(test_const_load_fail2_nvp)
+ryppl_test_compile_fail(test_const_load_fail3_nvp)
 
-boost_test_compile(test_static_warning)
-boost_test_compile(test_const_save_warn1)
-boost_test_compile(test_const_save_warn2)
-boost_test_compile(test_const_save_warn3)
+ryppl_test_compile(test_static_warning)
+ryppl_test_compile(test_const_save_warn1)
+ryppl_test_compile(test_const_save_warn2)
+ryppl_test_compile(test_const_save_warn3)
 
 # note - library unable to detect there errors for now
-#boost_test_compile_fail(test_const_save_fail1_nvp)
-#boost_test_compile_fail(test_const_save_fail2_nvp)
-#boost_test_compile_fail(test_const_save_fail3_nvp)
+#ryppl_test_compile_fail(test_const_save_fail1_nvp)
+#ryppl_test_compile_fail(test_const_save_fail2_nvp)
+#ryppl_test_compile_fail(test_const_save_fail3_nvp)
 
 # should compile
-boost_test_compile(test_traits_pass)
-boost_test_compile(test_const_pass)
+ryppl_test_compile(test_traits_pass)
+ryppl_test_compile(test_const_pass)
