@@ -13,6 +13,6 @@ ryppl_library_project(
   DESCRIPTION  "Serialization for persistence and marshalling."
   AUTHORS  "<ramey -at- rrsd.com>"
   #  MAINTAINERS 
-)
+VERSION 1.41.0)
 
 
