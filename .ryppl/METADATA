@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: boost-serialization
+Version: 1.44.0.dev0
+Summary: Some summary goes here
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Boost License 1.0
+Keywords: some keywords
+Requires-Dist: boost-cmake
+Requires-Dist: boost-spirit
+Requires-Dist: boost-preprocessor
+Requires-Dist: boost-detail
+Requires-Dist: boost-compatibility
+Requires-Dist: boost-config
+Requires-Dist: boost-type_traits
+Requires-Dist: boost-optional
+Requires-Dist: boost-array
+Requires-Dist: boost-utility
+Requires-Dist: boost-static_assert
+Requires-Dist: boost-integer
+Requires-Dist: boost-function
+Requires-Dist: boost-iterator
+Requires-Dist: boost-core
+Requires-Dist: boost-smart_ptr
+Requires-Dist: boost-variant
+Requires-Dist: boost-mpl
+Requires-Dist: boost-io
+Platform: UNKNOWN
+Description: boost-serialization
+       |=======
+       |
+       |No long description yet.
